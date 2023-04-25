@@ -24,7 +24,6 @@ export class Web3Store {
     signer = undefined 
     account=undefined
     
-  //  balance=0
     chainId=undefined 
 
     transactionCount = undefined 
@@ -47,11 +46,11 @@ export class Web3Store {
             account: observable,
        
          
-        //    balance: observable,
+      
             challenge: observable,
             authToken: observable,
             authTokenExpiresAt: observable,
-     //       authorized: observable, 
+
 
             active: computed,
             authorized:computed, 
@@ -93,16 +92,13 @@ export class Web3Store {
       console.log("Account:", await this.signer.getAddress());
       let account = await this.signer.getAddress()
 
-    //  let balance = await this.signer.getBalance()
-      //let balanceFormatted = ethers.utils.formatEther(balance)
-
+  
       const { chainId } = await this.provider.getNetwork()
 
   
 
       this.account = account 
-     // this.balance = balance 
-     // this.active = true 
+   
       this.chainId = chainId 
       
       this.registerWalletCallbacks()
@@ -126,7 +122,6 @@ export class Web3Store {
     }
 
 
-    //these dont work properly like this w strict mode ...
     registerWalletCallbacks(){
 
       window.ethereum.on('connect', ({chainId}) => {
@@ -219,7 +214,7 @@ export class Web3Store {
 
         this.authToken = authToken
         this.authTokenExpiresAt = expiresAt 
-       // this.authorized = true 
+     
 
         console.log('set auth token', this.authToken,  this.authTokenExpiresAt)
 
@@ -304,8 +299,7 @@ export function getNetworkNameFromChainId(chainId){
     case 1: return 'mainnet'
     case 4: return 'rinkeby'
     case 5: return 'goerli'
-    //case 17001: return 'mainnet'
-    //case 17005: return 'goerli'
+   
 
     default: return 'unknown'
   }
