@@ -1,6 +1,13 @@
 ## Degen Auth React 
 
-A toolkit with backend and frontend components to add 'sign in with ethereum' to your app
+A toolkit with backend and frontend components to add 'sign in with ethereum' to your app.
+
+
+### Pre-requisites
+
+1.  Assumes running a NodeJS+React frontend with a mobx frontend datastore to use included modules.
+
+2.  Backend code for read/write of challenges and auth tokens is included.
 
 
 
