@@ -87,7 +87,7 @@ export default class SessionController extends GenericController {
           //should read the date out of the challenge !! otherwise expiration is useless and the same challenge can be replayed 
         let signatureValid =  validatePersonalSignature(publicAddress,signature,challenge)
 
-        if(!signatureValid){
+        if(!isAssertionSuccess(signatureValid)){
             return {success:false, error:"signature invalid"}
         }
  
